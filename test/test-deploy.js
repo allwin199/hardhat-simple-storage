@@ -23,4 +23,16 @@ describe("SimpleStorage", function () {
         const updatedFavNumber = await simpleStorage.showFavouriteNumber();
         assert.equal(updatedFavNumber.toString(), newFavNumber);
     });
+
+    it("Should add new person and favNumber to mapping", async function () {
+        const newPerson = "Tommy";
+        const newFavNumber = "22";
+        const txResponse = await simpleStorage.addPerson(
+            newPerson,
+            newFavNumber,
+        );
+        await txResponse.wait(1);
+        const updatedPerson = await simpleStorage.favOfPeople(newPerson);
+        assert.equal(updatedPerson.toString(), newFavNumber);
+    });
 });
