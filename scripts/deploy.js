@@ -1,4 +1,4 @@
-const { ethers, run, network } = require("hardhat");
+const { ethers, run } = require("hardhat");
 require("dotenv").config();
 
 async function main() {
@@ -6,10 +6,7 @@ async function main() {
     /////////////////////////////
     const simpleStorage = await ethers.deployContract("SimpleStorage");
     await simpleStorage.waitForDeployment();
-    const transactionReceipt = await simpleStorage.deploymentTransaction();
 
-    // console.log("Receipt", await simpleStorage.deploymentTransaction().wait(2));
-    /////////////////////////////
     console.log(`Deployed contract to: ${simpleStorage.target}`);
 
     // //////////////  Verification   ///////////////////

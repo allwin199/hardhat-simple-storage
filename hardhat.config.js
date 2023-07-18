@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 require("@nomicfoundation/hardhat-verify");
+require("./tasks/block-number");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
@@ -24,3 +25,5 @@ module.exports = {
 };
 
 //yarn hardhat run scripts/deploy.js --network sepolia
+
+module.exports = {};
